@@ -1,0 +1,37 @@
+node/server01 cordoned
+Warning: ignoring DaemonSet-managed Pods: kube-flannel/kube-flannel-ds-7cz9g, kube-system/kube-proxy-vsc4d
+evicting pod 6-day/spread-web-78fc64f45-kdp65
+evicting pod 6-day/edge-web-54d58c8cf7-f96x7
+evicting pod 6-day/edge-web-54d58c8cf7-x5sv2
+error when evicting pods/"edge-web-54d58c8cf7-x5sv2" -n "6-day" (will retry after 5s): Cannot evict pod as it would violate the pod's disruption budget.
+pod/edge-web-54d58c8cf7-f96x7 evicted
+evicting pod 6-day/edge-web-54d58c8cf7-x5sv2
+error when evicting pods/"edge-web-54d58c8cf7-x5sv2" -n "6-day" (will retry after 5s): Cannot evict pod as it would violate the pod's disruption budget.
+evicting pod 6-day/edge-web-54d58c8cf7-x5sv2
+error when evicting pods/"edge-web-54d58c8cf7-x5sv2" -n "6-day" (will retry after 5s): Cannot evict pod as it would violate the pod's disruption budget.
+evicting pod 6-day/edge-web-54d58c8cf7-x5sv2
+error when evicting pods/"edge-web-54d58c8cf7-x5sv2" -n "6-day" (will retry after 5s): Cannot evict pod as it would violate the pod's disruption budget.
+evicting pod 6-day/edge-web-54d58c8cf7-x5sv2
+error when evicting pods/"edge-web-54d58c8cf7-x5sv2" -n "6-day" (will retry after 5s): Cannot evict pod as it would violate the pod's disruption budget.
+evicting pod 6-day/edge-web-54d58c8cf7-x5sv2
+error when evicting pods/"edge-web-54d58c8cf7-x5sv2" -n "6-day" (will retry after 5s): Cannot evict pod as it would violate the pod's disruption budget.
+evicting pod 6-day/edge-web-54d58c8cf7-x5sv2
+error when evicting pods/"edge-web-54d58c8cf7-x5sv2" -n "6-day" (will retry after 5s): Cannot evict pod as it would violate the pod's disruption budget.
+pod/spread-web-78fc64f45-kdp65 evicted
+evicting pod 6-day/edge-web-54d58c8cf7-x5sv2
+error when evicting pods/"edge-web-54d58c8cf7-x5sv2" -n "6-day" (will retry after 5s): Cannot evict pod as it would violate the pod's disruption budget.
+evicting pod 6-day/edge-web-54d58c8cf7-x5sv2
+error when evicting pods/"edge-web-54d58c8cf7-x5sv2" -n "6-day" (will retry after 5s): Cannot evict pod as it would violate the pod's disruption budget.
+evicting pod 6-day/edge-web-54d58c8cf7-x5sv2
+error when evicting pods/"edge-web-54d58c8cf7-x5sv2" -n "6-day" (will retry after 5s): Cannot evict pod as it would violate the pod's disruption budget.
+evicting pod 6-day/edge-web-54d58c8cf7-x5sv2
+error when evicting pods/"edge-web-54d58c8cf7-x5sv2" -n "6-day" (will retry after 5s): Cannot evict pod as it would violate the pod's disruption budget.
+evicting pod 6-day/edge-web-54d58c8cf7-x5sv2
+error when evicting pods/"edge-web-54d58c8cf7-x5sv2" -n "6-day" (will retry after 5s): Cannot evict pod as it would violate the pod's disruption budget.
+evicting pod 6-day/edge-web-54d58c8cf7-x5sv2
+There are pending pods in node "server01" when an error occurred: error when evicting pods/"edge-web-54d58c8cf7-x5sv2" -n "6-day": global timeout reached: 1m0s
+pod/edge-web-54d58c8cf7-x5sv2
+error: unable to drain node "server01" due to error:error when evicting pods/"edge-web-54d58c8cf7-x5sv2" -n "6-day": global timeout reached: 1m0s, continuing command...
+There are pending nodes to be drained:
+ server01
+error when evicting pods/"edge-web-54d58c8cf7-x5sv2" -n "6-day": global timeout reached: 1m0s
