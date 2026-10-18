@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spread-web
+  namespace: 6-day
+  annotations:
+    kubernetes.io/change-cause: "6-day: test required pod anti-affinity with 3 replicas"
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: spread-web
+  template:
+    metadata:
+      labels:
+        app: spread-web
+    spec:
+      containers:
+        - name: busybox
+          image: busybox:1.36
+          command: ["sh", "-c", "sleep 3600"]
+      tolerations:
+        - key: "dedicated"
+          operator: "Equal"
+          value: "edge"
+          effect: "NoSchedule"
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchLabels:
+                  app: spread-web
+              topologyKey: kubernetes.io/hostname
