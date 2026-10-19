@@ -1,0 +1,58 @@
+Name:              pvc-035f8b50-98e8-4fa3-b283-95a6e915eb56
+Labels:            <none>
+Annotations:       local.path.provisioner/selected-node: server01
+                   pv.kubernetes.io/provisioned-by: rancher.io/local-path
+Finalizers:        [kubernetes.io/pv-protection]
+StorageClass:      local-path
+Status:            Bound
+Claim:             7-day/data-mysql-0
+Reclaim Policy:    Delete
+Access Modes:      RWO
+VolumeMode:        Filesystem
+Capacity:          1Gi
+Node Affinity:     
+  Required Terms:  
+    Term 0:        kubernetes.io/hostname in [server01]
+Message:           
+Source:
+    Type:          HostPath (bare host directory volume)
+    Path:          /opt/local-path-provisioner/pvc-035f8b50-98e8-4fa3-b283-95a6e915eb56_7-day_data-mysql-0
+    HostPathType:  DirectoryOrCreate
+Events:            <none>
+persistentvolume/pvc-035f8b50-98e8-4fa3-b283-95a6e915eb56 patched
+Name:              pvc-035f8b50-98e8-4fa3-b283-95a6e915eb56
+Labels:            <none>
+Annotations:       local.path.provisioner/selected-node: server01
+                   pv.kubernetes.io/provisioned-by: rancher.io/local-path
+Finalizers:        [kubernetes.io/pv-protection]
+StorageClass:      local-path
+Status:            Bound
+Claim:             7-day/data-mysql-0
+Reclaim Policy:    Retain
+Access Modes:      RWO
+VolumeMode:        Filesystem
+Capacity:          1Gi
+Node Affinity:     
+  Required Terms:  
+    Term 0:        kubernetes.io/hostname in [server01]
+Message:           
+Source:
+    Type:          HostPath (bare host directory volume)
+    Path:          /opt/local-path-provisioner/pvc-035f8b50-98e8-4fa3-b283-95a6e915eb56_7-day_data-mysql-0
+    HostPathType:  DirectoryOrCreate
+Events:            <none>
+statefulset.apps "mysql" deleted
+persistentvolumeclaim "data-mysql-0" deleted
+  claimRef:
+    apiVersion: v1
+    kind: PersistentVolumeClaim
+    name: data-mysql-0
+    namespace: 7-day
+    resourceVersion: "2021957"
+    uid: 035f8b50-98e8-4fa3-b283-95a6e915eb56
+persistentvolume/pvc-035f8b50-98e8-4fa3-b283-95a6e915eb56 patched
+statefulset.apps/mysql created
+NAME      READY   STATUS    RESTARTS   AGE
+mysql-0   1/1     Running   0          84s
+id	value
+1	day7
