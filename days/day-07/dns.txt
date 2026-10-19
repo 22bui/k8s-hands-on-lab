@@ -1,0 +1,25 @@
+Server:		10.96.0.10
+Address:	10.96.0.10:53
+
+** server can't find mysql.cluster.local: NXDOMAIN
+
+Name:	mysql.7-day.svc.cluster.local
+Address: 10.244.1.33
+
+** server can't find mysql.svc.cluster.local: NXDOMAIN
+
+** server can't find mysql.cluster.local: NXDOMAIN
+
+
+** server can't find mysql.svc.cluster.local: NXDOMAIN
+
+pod "dns-test" deleted
+pod 7-day/dns-test terminated (Error)
+Server:		10.96.0.10
+Address:	10.96.0.10:53
+
+
+Name:	mysql-0.mysql.7-day.svc.cluster.local
+Address: 10.244.1.33
+
+pod "dns-test" deleted
