@@ -1,0 +1,19 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: flaky
+  namespace: 8-day
+spec:
+  template:
+    metadata:
+      labels:
+        app: flaky
+    spec:
+      containers:
+        - name: flaky
+          image: busybox:1.36
+          command: ["/bin/sh", "-c"]
+          args:
+            - "echo 'flaky task running' && exit 1"
+      restartPolicy: Never
+  backoffLimit: 2
