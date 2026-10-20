@@ -37,6 +37,8 @@
 | [Day 4](days/day-04) | 资源管理 | requests/limits、OOMKilled(137)、CPU 节流、QoS |
 | [Day 5](days/day-05) | Ingress 进阶 | Header / 权重灰度、cookie 亲和、checksum 注解触发滚动、无 selector Service |
 | [Day 6](days/day-06) | 调度 | nodeAffinity、污点与容忍、podAntiAffinity、PDB + drain |
+| [Day 7](days/day-07) | 有状态存储 | StorageClass 动态供给、StatefulSet + MySQL、PV 回收救援、headless DNS |
+| [Day 8](days/day-08) | 工作负载 + 排障 | DaemonSet、Job/CronJob、ImagePullBackOff / CrashLoopBackOff / Pending / 未就绪 |
 
 *持续更新中……*
 
