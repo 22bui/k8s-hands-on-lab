@@ -1,0 +1,9 @@
+-A KUBE-SEP-T2AF3LSC7TZ3YNHK -s 10.244.1.63/32 -m comment --comment "9-day/api" -j KUBE-MARK-MASQ
+-A KUBE-SEP-T2AF3LSC7TZ3YNHK -p tcp -m comment --comment "9-day/api" -m tcp -j DNAT --to-destination 10.244.1.63:80
+-A KUBE-SEP-XB5PNUHOAIBHZGN7 -s 10.244.1.64/32 -m comment --comment "9-day/api" -j KUBE-MARK-MASQ
+-A KUBE-SEP-XB5PNUHOAIBHZGN7 -p tcp -m comment --comment "9-day/api" -m tcp -j DNAT --to-destination 10.244.1.64:80
+-A KUBE-SERVICES -d 10.99.255.217/32 -p tcp -m comment --comment "9-day/api cluster IP" -m tcp --dport 8080 -j KUBE-SVC-ZXRWHWZVCYZ7PNJR
+-A KUBE-SVC-ZXRWHWZVCYZ7PNJR ! -s 10.244.0.0/16 -d 10.99.255.217/32 -p tcp -m comment --comment "9-day/api cluster IP" -m tcp --dport 8080 -j KUBE-MARK-MASQ
+# probability 0.5：约 50% 概率匹配此规则并跳转到第一个后端；如果未匹配，则继续检查下一条规则。不是严格轮询。
+-A KUBE-SVC-ZXRWHWZVCYZ7PNJR -m comment --comment "9-day/api -> 10.244.1.63:80" -m statistic --mode random --probability 0.50000000000 -j KUBE-SEP-T2AF3LSC7TZ3YNHK
+-A KUBE-SVC-ZXRWHWZVCYZ7PNJR -m comment --comment "9-day/api -> 10.244.1.64:80" -j KUBE-SEP-XB5PNUHOAIBHZGN7
