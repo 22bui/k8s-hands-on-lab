@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: evict-default
+  namespace: 9-day
+  annotations:
+    kubernetes.io/change-cause: "create evict-default"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: evict-default
+  template:
+    metadata:
+      labels:
+        app: evict-default
+    spec:
+      containers:
+        - name: evict
+          image: busybox:1.36
+          imagePullPolicy: IfNotPresent
+          command:
+            - "/bin/sh" 
+            - "-c"
+            - "sleep 3600"
+      nodeSelector: 
+        kubernetes.io/hostname: server01
