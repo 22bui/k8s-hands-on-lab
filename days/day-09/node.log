@@ -1,0 +1,24 @@
+kubelet stop requested at: 2026-10-21 10:33:05 CST
+kubelet start requested at: 2026-10-21 10:35:25 CST
+
+节点状态变化：
+- 10:33:05 CST：请求停止 kubelet。
+- 10:33:48 CST：Node 事件记录 server01 变为 NotReady。
+- 10:35:25 CST：请求重新启动 kubelet。
+- 10:35:26 CST：Node 事件记录 server01 恢复 Ready。
+- 停止到启动请求间隔 2 分 20 秒，超过本题 2 分钟限制 20 秒。
+
+evict-fast：
+- 旧 Pod evict-fast-b6d64669c-q77mx 从 Running 进入 Terminating，之后完成删除。
+- 替身 Pod evict-fast-b6d64669c-2fx4k 最初为 Pending。
+- FailedScheduling 事件显示：k8s-master 不符合 nodeSelector；server01 当时存在 node.kubernetes.io/unreachable 污点，替身无法调度。
+- 节点恢复后，替身经历 ContainerCreating，最终 Running，运行节点为 server01，Pod IP 为 10.244.1.68。
+- 旧 Pod 进入 Terminating、替身转为 Pending 等状态的精确时刻没有单独记录。
+
+evict-default：
+- 观察窗口中一直显示 Running，没有观察到它被驱逐或创建替身。
+- 注意：节点失联期间，API Server 中显示的 Running 可能是上一次收到的状态，不足以证明容器当时的实时健康状况。
+
+污点记录：
+- 调度失败事件中观察到 node.kubernetes.io/unreachable 污点。
+- 当时未保存 kubectl describe node server01 的完整输出，因此无法还原污点原文及 effect；此项记录不完整。
