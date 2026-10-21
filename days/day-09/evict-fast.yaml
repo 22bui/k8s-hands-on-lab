@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: evict-fast
+  namespace: 9-day
+  annotations:
+    kubernetes.io/change-cause: "create evict"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: evict
+  template:
+    metadata:
+      labels:
+        app: evict
+    spec:
+      containers:
+        - name: evict
+          image: busybox:1.36
+          imagePullPolicy: IfNotPresent
+          command:
+            - "/bin/sh" 
+            - "-c"
+            - "sleep 3600"
+      nodeSelector: 
+        kubernetes.io/hostname: server01
+      tolerations:
+        - key: node.kubernetes.io/unreachable
+          operator: Exists
+          effect: NoExecute
+          tolerationSeconds: 20
+        - key: node.kubernetes.io/not-ready
+          operator: Exists
+          effect: NoExecute
+          tolerationSeconds: 20
