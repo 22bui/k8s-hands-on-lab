@@ -39,6 +39,7 @@
 | [Day 6](days/day-06) | 调度 | nodeAffinity、污点与容忍、podAntiAffinity、PDB + drain |
 | [Day 7](days/day-07) | 有状态存储 | StorageClass 动态供给、StatefulSet + MySQL、PV 回收救援、headless DNS |
 | [Day 8](days/day-08) | 工作负载 + 排障 | DaemonSet、Job/CronJob、ImagePullBackOff / CrashLoopBackOff / Pending / 未就绪 |
+| [Day 9](days/day-09) | 节点层 + Service 链路 | 静态 Pod、Endpoints/targetPort 排障、iptables 链、kubelet 停止与 tolerationSeconds、NodePort |
 
 *持续更新中……*
 
