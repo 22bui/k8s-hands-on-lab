@@ -1,0 +1,7 @@
+# /etc/kubernetes/manifests/kube-scheduler.yaml（静态 Pod 清单）
+# 修复前备份在 manifests 目录之外：~/hark-test/10-day/kube-scheduler.yaml.bak
+--- kube-scheduler.yaml.bak   (故障)
++++ kube-scheduler.yaml       (修复后)
+@@ -17 +17 @@
+-    - --kubeconfig=/etc/kubernetes/schedular.conf
++    - --kubeconfig=/etc/kubernetes/scheduler.conf
