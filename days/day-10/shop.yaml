@@ -1,0 +1,26 @@
+# Day 10 故障演练用 Deployment：先以 2 副本运行，故障注入后扩到 4
+# kubectl create ns 10-day && kubectl apply -f shop.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shop
+  namespace: 10-day
+  annotations:
+    kubernetes.io/change-cause: "10-day incident drill: scale shop from 2 to 4 replicas"
+spec:
+  replicas: 4
+  selector:
+    matchLabels: {app: shop}
+  template:
+    metadata:
+      labels: {app: shop}
+    spec:
+      containers:
+      - name: nginx
+        image: docker.io/library/nginx:1.27
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 80
+        resources:
+          requests: {cpu: 10m, memory: 16Mi}
+
