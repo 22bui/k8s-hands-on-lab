@@ -40,6 +40,7 @@
 | [Day 7](days/day-07) | 有状态存储 | StorageClass 动态供给、StatefulSet + MySQL、PV 回收救援、headless DNS |
 | [Day 8](days/day-08) | 工作负载 + 排障 | DaemonSet、Job/CronJob、ImagePullBackOff / CrashLoopBackOff / Pending / 未就绪 |
 | [Day 9](days/day-09) | 节点层 + Service 链路 | 静态 Pod、Endpoints/targetPort 排障、iptables 链、kubelet 停止与 tolerationSeconds、NodePort |
+| [Day 10](days/day-10) | 控制面排障 | kube-scheduler 静态 Pod 故障定位、Pod 创建链路、etcd 快照 |
 
 *持续更新中……*
 
@@ -48,6 +49,7 @@
 - **ConfigMap 卷热更新 ≠ 滚动更新**：文件内容会变，但 Pod 不会重建；想自动滚动，要把 checksum 写进 `Deployment.spec.template.metadata.annotations`。
 - **subPath 挂载不会热更新**：subPath 在启动时绑定具体文件，kubelet 更新的是 `..data` 软链接，绑定的旧文件不变。
 - **Ingress 不走 kube-proxy**：ingress-nginx 自己读 Endpoints 直连 Pod IP；集群内访问 Service 名称 / NodePort 才走 kube-proxy。
+- **Pod 不是 kubelet 创建的**：ReplicaSet 控制器写入 Pod 对象 → scheduler 绑定节点 → kubelet 拉起容器；scheduler 挂了只影响新 Pod。
 - **零中断滚动的关键是 `maxUnavailable: 0`**，配合 readiness 探针。
 
 ## 📂 目录结构
