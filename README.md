@@ -41,6 +41,7 @@
 | [Day 8](days/day-08) | 工作负载 + 排障 | DaemonSet、Job/CronJob、ImagePullBackOff / CrashLoopBackOff / Pending / 未就绪 |
 | [Day 9](days/day-09) | 节点层 + Service 链路 | 静态 Pod、Endpoints/targetPort 排障、iptables 链、kubelet 停止与 tolerationSeconds、NodePort |
 | [Day 10](days/day-10) | 控制面排障 | kube-scheduler 静态 Pod 故障定位、Pod 创建链路、etcd 快照 |
+| [Day 11](days/day-11) | DNS 排障 | CoreDNS Corefile 故障、插件链与 forward 兜底、ndots/search、dnsPolicy None、证书到期检查 |
 
 *持续更新中……*
 
@@ -50,6 +51,7 @@
 - **subPath 挂载不会热更新**：subPath 在启动时绑定具体文件，kubelet 更新的是 `..data` 软链接，绑定的旧文件不变。
 - **Ingress 不走 kube-proxy**：ingress-nginx 自己读 Endpoints 直连 Pod IP；集群内访问 Service 名称 / NodePort 才走 kube-proxy。
 - **Pod 不是 kubelet 创建的**：ReplicaSet 控制器写入 Pod 对象 → scheduler 绑定节点 → kubelet 拉起容器；scheduler 挂了只影响新 Pod。
+- **CoreDNS 插件按顺序过**：`kubernetes` 插件只认自己的区，不认的落到 `forward` 去上游；集群名 NXDOMAIN 而外网正常，基本就是 Corefile 的 zone 出了问题。
 - **零中断滚动的关键是 `maxUnavailable: 0`**，配合 readiness 探针。
 
 ## 📂 目录结构
