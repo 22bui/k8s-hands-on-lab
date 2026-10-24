@@ -1,0 +1,171 @@
+search 11-day.svc.cluster.local svc.cluster.local cluster.local
+nameserver 10.96.0.10
+options ndots:5
+Server:		10.96.0.10
+Address:	10.96.0.10:53
+
+** server can't find api.11-day.svc.cluster.local: NXDOMAIN
+
+** server can't find api.11-day.svc.cluster.local: NXDOMAIN
+
+** server can't find api.cluster.local: NXDOMAIN
+
+** server can't find api.cluster.local: NXDOMAIN
+
+** server can't find api.svc.cluster.local: NXDOMAIN
+
+** server can't find api.svc.cluster.local: NXDOMAIN
+
+command terminated with exit code 1
+Server:		10.96.0.10
+Address:	10.96.0.10:53
+
+** server can't find api.11-day.svc.cluster.local: NXDOMAIN
+
+** server can't find api.11-day.svc.cluster.local: NXDOMAIN
+
+command terminated with exit code 1
+Server:		10.96.0.10
+Address:	10.96.0.10:53
+
+Non-authoritative answer:
+www.aliyun.com	canonical name = www-jp-de-intl-adns.aliyun.com
+www-jp-de-intl-adns.aliyun.com	canonical name = www-jp-de-intl-adns.aliyun.com.gds.alibabadns.com
+www-jp-de-intl-adns.aliyun.com.gds.alibabadns.com	canonical name = www.aliyun.com.w.cdngslb.com
+Name:	www.aliyun.com.w.cdngslb.com
+Address: 240e:f7:a093:101:3::7
+Name:	www.aliyun.com.w.cdngslb.com
+Address: 240e:f7:a093:101:3::6
+
+Non-authoritative answer:
+www.aliyun.com	canonical name = www-jp-de-intl-adns.aliyun.com
+www-jp-de-intl-adns.aliyun.com	canonical name = www-jp-de-intl-adns.aliyun.com.gds.alibabadns.com
+www-jp-de-intl-adns.aliyun.com.gds.alibabadns.com	canonical name = www.aliyun.com.w.cdngslb.com
+Name:	www.aliyun.com.w.cdngslb.com
+Address: 60.188.96.143
+Name:	www.aliyun.com.w.cdngslb.com
+Address: 61.174.43.14
+Name:	www.aliyun.com.w.cdngslb.com
+Address: 60.163.131.9
+Name:	www.aliyun.com.w.cdngslb.com
+Address: 122.228.79.43
+Name:	www.aliyun.com.w.cdngslb.com
+Address: 122.228.15.34
+Name:	www.aliyun.com.w.cdngslb.com
+Address: 60.188.105.49
+Name:	www.aliyun.com.w.cdngslb.com
+Address: 122.225.214.8
+Name:	www.aliyun.com.w.cdngslb.com
+Address: 122.247.210.51
+Name:	www.aliyun.com.w.cdngslb.com
+Address: 60.188.78.25
+Name:	www.aliyun.com.w.cdngslb.com
+Address: 60.188.74.22
+Name:	www.aliyun.com.w.cdngslb.com
+Address: 122.225.217.64
+Name:	www.aliyun.com.w.cdngslb.com
+Address: 122.228.195.18
+
+NAME               TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)                  AGE
+service/kube-dns   ClusterIP   10.96.0.10   <none>        53/UDP,53/TCP,9153/TCP   20d
+
+NAME                 ENDPOINTS                                               AGE
+endpoints/kube-dns   10.244.0.2:53,10.244.0.4:53,10.244.0.2:53 + 3 more...   20d
+apiVersion: v1
+data:
+  Corefile: |
+    .:53 {
+        errors
+        health {
+           lameduck 5s
+        }
+        ready
+        kubernetes cluster.lokal in-addr.arpa ip6.arpa {
+           pods insecure
+           fallthrough in-addr.arpa ip6.arpa
+           ttl 30
+        }
+        prometheus :9153
+        forward . /etc/resolv.conf {
+           max_concurrent 1000
+        }
+        cache 30
+        loop
+        reload
+        loadbalance
+    }
+kind: ConfigMap
+metadata:
+  creationTimestamp: "2026-10-03T10:12:33Z"
+  name: coredns
+  namespace: kube-system
+  resourceVersion: "2729758"
+  uid: b4899724-afc4-4819-b153-545782d156e3
+Server:		10.96.0.10
+Address:	10.96.0.10:53
+
+** server can't find api.11-day.svc.cluster.local: NXDOMAIN
+
+** server can't find api.11-day.svc.cluster.local: NXDOMAIN
+
+command terminated with exit code 1
+apiVersion: v1
+data:
+  Corefile: |
+    .:53 {
+        errors
+        health {
+           lameduck 5s
+        }
+        ready
+        kubernetes cluster.local in-addr.arpa ip6.arpa {
+           pods insecure
+           fallthrough in-addr.arpa ip6.arpa
+           ttl 30
+        }
+        prometheus :9153
+        forward . /etc/resolv.conf {
+           max_concurrent 1000
+        }
+        cache 30
+        loop
+        reload
+        loadbalance
+    }
+kind: ConfigMap
+metadata:
+  creationTimestamp: "2026-10-03T10:12:33Z"
+  name: coredns
+  namespace: kube-system
+  resourceVersion: "2743099"
+  uid: b4899724-afc4-4819-b153-545782d156e3
+[INFO] Reloading
+[INFO] plugin/reload: Running configuration SHA512 = 591cf328cccc12bc490481273e738df59329c62c0b729d94e8b61db9961c2fa5f046dd37f1cf888b953814040d180f52594972691cd6ff41be96639138a43908
+[INFO] Reloading complete
+[INFO] Reloading
+[INFO] plugin/reload: Running configuration SHA512 = 591cf328cccc12bc490481273e738df59329c62c0b729d94e8b61db9961c2fa5f046dd37f1cf888b953814040d180f52594972691cd6ff41be96639138a43908
+[INFO] Reloading complete
+Server:		10.96.0.10
+Address:	10.96.0.10:53
+
+Name:	api.11-day.svc.cluster.local
+Address: 10.96.157.28
+
+
+Server:		10.96.0.10
+Address:	10.96.0.10:53
+
+Name:	api.11-day.svc.cluster.local
+Address: 10.96.157.28
+
+** server can't find api.svc.cluster.local: NXDOMAIN
+
+** server can't find api.cluster.local: NXDOMAIN
+
+
+** server can't find api.svc.cluster.local: NXDOMAIN
+
+** server can't find api.cluster.local: NXDOMAIN
+
+command terminated with exit code 1
+
