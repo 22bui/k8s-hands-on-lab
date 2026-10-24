@@ -1,0 +1,5 @@
+--- coredns ConfigMap (故障)
++++ coredns ConfigMap (修复)
+@@ Corefile @@
+-    kubernetes cluster.lokal in-addr.arpa ip6.arpa {
++    kubernetes cluster.local in-addr.arpa ip6.arpa {
