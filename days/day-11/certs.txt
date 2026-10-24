@@ -1,0 +1,20 @@
+[check-expiration] Reading configuration from the cluster...
+[check-expiration] FYI: You can look at this config file with 'kubectl -n kube-system get cm kubeadm-config -o yaml'
+
+CERTIFICATE                EXPIRES                  RESIDUAL TIME   CERTIFICATE AUTHORITY   EXTERNALLY MANAGED
+admin.conf                 Oct 03, 2027 10:12 UTC   343d            ca                      no      
+apiserver                  Oct 03, 2027 10:12 UTC   343d            ca                      no      
+apiserver-etcd-client      Oct 03, 2027 10:12 UTC   343d            etcd-ca                 no      
+apiserver-kubelet-client   Oct 03, 2027 10:12 UTC   343d            ca                      no      
+controller-manager.conf    Oct 03, 2027 10:12 UTC   343d            ca                      no      
+etcd-healthcheck-client    Oct 03, 2027 10:12 UTC   343d            etcd-ca                 no      
+etcd-peer                  Oct 03, 2027 10:12 UTC   343d            etcd-ca                 no      
+etcd-server                Oct 03, 2027 10:12 UTC   343d            etcd-ca                 no      
+front-proxy-client         Oct 03, 2027 10:12 UTC   343d            front-proxy-ca          no      
+scheduler.conf             Oct 03, 2027 10:12 UTC   343d            ca                      no      
+
+CERTIFICATE AUTHORITY   EXPIRES                  RESIDUAL TIME   EXTERNALLY MANAGED
+ca                      Sep 30, 2036 10:12 UTC   9y              no      
+etcd-ca                 Sep 30, 2036 10:12 UTC   9y              no      
+front-proxy-ca          Sep 30, 2036 10:12 UTC   9y              no      
+
