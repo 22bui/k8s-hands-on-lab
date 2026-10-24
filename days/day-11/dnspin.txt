@@ -1,0 +1,4 @@
+search 11-day.svc.cluster.local svc.cluster.local
+nameserver 10.96.0.10
+options ndots:2
+
