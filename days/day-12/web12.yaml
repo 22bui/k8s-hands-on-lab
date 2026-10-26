@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web12
+  namespace: 12-day
+  annotations:
+    kubernetes.io/change-cause: "create deployment"
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: web12
+  template:
+    metadata:
+      labels:
+        app: web12
+    spec:
+      containers:
+        - name: web12
+          image: nginx:1.27
+          imagePullPolicy: IfNotPresent
