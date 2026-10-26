@@ -42,6 +42,7 @@
 | [Day 9](days/day-09) | 节点层 + Service 链路 | 静态 Pod、Endpoints/targetPort 排障、iptables 链、kubelet 停止与 tolerationSeconds、NodePort |
 | [Day 10](days/day-10) | 控制面排障 | kube-scheduler 静态 Pod 故障定位、Pod 创建链路、etcd 快照 |
 | [Day 11](days/day-11) | DNS 排障 | CoreDNS Corefile 故障、插件链与 forward 兜底、ndots/search、dnsPolicy None、证书到期检查 |
+| [Day 12](days/day-12) | 认证授权 + 配额 | 用户证书 CSR 签发、独立 kubeconfig、Role/RoleBinding 绑组、ClusterRole 作用域、ResourceQuota + LimitRange |
 
 *持续更新中……*
 
