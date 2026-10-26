@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: log-reader
+  namespace: 12-day
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: pod-reader-12
+rules:
+  - apiGroups: [""]
+    resources: ["pods"]
+    verbs: ["get", "list"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: pod-reader-binding-12
+  namespace: 12-day
+subjects:
+  - kind: ServiceAccount
+    name: log-reader
+    namespace: 12-day
+roleRef:
+  kind: ClusterRole
+  name: pod-reader-12
+  apiGroup: rbac.authorization.k8s.io
+# can-i 结果：12-day yes / default no
+# 绑 cluster-admin 的 ClusterRoleBinding：cluster-admin
